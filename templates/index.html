@@ -1,0 +1,32 @@
+<!-- SOURCED FROM https://www.w3schools.com/howto/howto_css_register_form.asp -->
+<html>
+<link rel="stylesheet" href="static/styles.css">
+<script>
+function change_label(){
+    if ((document.getElementById("host").value.length != 0) && (document.getElementById("database").value.length != 0) && (document.getElementById("table").value.length != 0) && (document.getElementById("username").value.length != 0) && (document.getElementById("password").value.length != 0) && (document.getElementById("file").value.length != 0)){
+      document.getElementById("btn").innerHTML = "Uploading...";
+    }
+}
+</script>
+<form action="/", method="post">
+  <div class="container">
+    <h2 style="font-family: Arial">Upload CSV / Excel to MySQL</h2>
+    <input type="text" placeholder="Enter Database Server Address" name="host" id="host" required>
+
+    <input type="text" placeholder="Enter Database Name" name="database" id="database" required>
+
+    <input type="text" placeholder="Enter Table Name" name="table" id="table" required>
+
+    <input type="text" placeholder="Enter Username" name="username" id="username" required>
+
+    <input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+    <input type="text" placeholder="Enter Location Of File To Upload" name="file" id="file" required>
+
+    <br><br>
+    <button type="submit" class="registerbtn" id="btn" onclick="change_label()">Upload</button>
+
+    </div>
+    </form>
+    <h5 style="font-family: Arial">{{log|safe}}</h5>
+</html>
